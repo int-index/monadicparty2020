@@ -710,10 +710,10 @@ instance <span class="error">Char ~ Bool</span>  <span class="comment">-- does n
             <h2>Equality Constraints</h2>
             <p>The compiler has built-in knowledge about equality:</p>
             <ul>
-              <li><code>forall a. a ~ a</code></li>
-              <li><code>forall a b. a ~ b =&gt; b ~ a</code></li>
-              <li><code>forall a b. (a ~ b, b ~ c) =&gt; (a ~ c)</code></li>
-              <li><code>forall f g a b. f a ~ g b =&gt; (f ~ g, a ~ b)</code></li>
+              <li><code>a ~ a</code></li>
+              <li><code>a ~ b =&gt; b ~ a</code></li>
+              <li><code>(a ~ b, b ~ c) =&gt; (a ~ c)</code></li>
+              <li><code>f a ~ g b =&gt; (f ~ g, a ~ b)</code></li>
             </ul>
           </section>
           <section>
