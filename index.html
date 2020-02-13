@@ -370,7 +370,7 @@ id = \x -&gt; (x :: <span class="error">a</span>)     <span class="comment">-- <
             <p>With <code class="hs-ext">ScopedTypeVariables</code>:</p>
 <code>
 id :: forall a. <span class="highlight">a -&gt; a</span>
-id = \x -&gt; <span class="highlight">(x :: a)</span>  <span class="comment">-- the scope of <code>a</code></span>
+id = <span class="highlight">\x -&gt; (x :: a)</span>  <span class="comment">-- the scope of <code>a</code></span>
 </code>
           </section>
           <section>
@@ -450,7 +450,7 @@ ppr2 False = "0"
 <span class="prompt">ghci&gt;</span> f ppr2
 "1 0"
 </code>
-          <p><code>f</code> is a higher-order function function.</p>
+          <p><code>f</code> is a higher-order function.</p>
           <p>
             It takes an input, <code>Bool -&gt; String</code>, that itself has
             an input, <code>Bool</code>.
