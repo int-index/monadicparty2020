@@ -541,12 +541,12 @@ data Constraint where
             <p>Classes are basically record types.</p>
 <code>
 <strong>class</strong> Functor f where
-  fmap :: forall a b. (a -&gt; b) -&gt; f a -&gt; f b
+  fmap  :: forall a b. (a -&gt; b) -&gt; f a -&gt; f b
 </code>
 
 <code>
-<strong>data</strong> Functor f = <span class="unimportant">MkFunctor {</span>
-  fmap :: forall a b. (a -&gt; b) -&gt; f a -&gt; f b
+<strong>data</strong> Functor' f = <span class="unimportant">MkFunctor {</span>
+  fmap' :: forall a b. (a -&gt; b) -&gt; f a -&gt; f b
 <span class="unimportant">}</span>
 </code>
           </section>
@@ -720,6 +720,7 @@ instance <span class="error">Char ~ Bool</span>  <span class="comment">-- does n
             <h2>Equality Constraints</h2>
             <p>A proof that <code>a</code> is either <code>Integer</code> or <code>Bool</code>:</p>
 <code>
+type IB :: Type -&gt; Type
 data IB a where
   I :: forall a. a ~ Integer =&gt; IB a
   B :: forall a. a ~ Bool    =&gt; IB a
