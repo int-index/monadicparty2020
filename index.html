@@ -103,6 +103,7 @@ default-extensions:
         </section>
 
         <section id="gadt-syntax">
+          <section>
           <h2>GADT Syntax</h2>
           <table>
             <thead>
@@ -136,6 +137,19 @@ data Maybe a where
           <p>
             A data type is defined by the types of its constructors.
           </p>
+          </section>
+
+          <section>
+            <h2>GADT Syntax</h2>
+            <h3>Exercise</h3>
+            <p>Define lists using <code class="hs-ext">GADTSyntax</code>.</p>
+            <h3>Solution</h3>
+<code class="solution">
+data List a where
+  Nil :: List a
+  Cons :: a -&gt; List a -&gt; List a
+</code>
+          </section>
         </section>
 
         <section id="peano">
@@ -728,6 +742,17 @@ x1 = MkShowable @Integer 5
 x2 = MkShowable @Bool True
 </code>
             <p>Existential type variables do not show up in the signature, like other fields.</p>
+          </section>
+          <section>
+            <h2>Existential Quantification</h2>
+            <p>This allows us to construct heterogeneous lists:</p>
+<code>
+items :: [Showable]
+items =
+  [ MkShowable "Hello",
+    MkShowable 5,
+    MkShowable True ]
+</code>
           </section>
           <section>
             <h2>Existential Quantification</h2>
