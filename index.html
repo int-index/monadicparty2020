@@ -70,6 +70,18 @@ p > .highlight, p > .highlight-2 {
 .bubble > code {
   display: block;
 }
+.solution {
+  color: transparent;
+  text-shadow: 0px 0px 15px rgba(0,0,0,0.5);
+  transition-property: text-shadow, color;
+  transition-timing-function: ease-in;
+  transition-duration: 1s;
+}
+.solution:hover {
+  color: inherit;
+  text-shadow: none;
+  transition-timing-function: ease-out;
+}
 </style>
   </head>
 
@@ -126,6 +138,79 @@ data Maybe a where
           </p>
         </section>
 
+        <section id="peano">
+          <section>
+            <h2>Natural Numbers</h2>
+            <p> Bounded numbers are supported by hardware. </p>
+<code>
+<span class="prompt">ghci&gt;</span> minBound :: Word
+0
+</code>
+<code>
+<span class="prompt">ghci&gt;</span> maxBound :: Word
+18446744073709551615
+</code>
+            <p> We typically don't give them much thought. </p>
+          </section>
+          <section>
+            <h2>Natural Numbers</h2>
+            <p> Arbitrary-precision numbers are built on top. For example, in the <code>integer-simple</code> package we have: </p>
+<code>
+data Digits = Some !Digit !Digits | None
+type Digit = Word#
+</code>
+            <p> We typically don't give them much thought either. </p>
+          </section>
+          <section>
+            <h2>Natural Numbers</h2>
+            <p>Without using built-in types, how does one define the type of natural numbers?</p>
+<code>
+data N = Z | S N
+</code>
+            <p>
+              Giuseppe Peano did it in 1889. Now this inductive definition is
+              called <em>Peano naturals</em>.
+            </p>
+          </section>
+          <section>
+            <h2>Natural Numbers</h2>
+            <table>
+              <thead>
+                <tr>
+                  <th>Decimal</th>
+                  <th>Peano</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr> <td><code>0</code></td> <td><code>Z</code></td> </tr>
+                <tr> <td><code>1</code></td> <td><code>S Z</code></td> </tr>
+                <tr> <td><code>2</code></td> <td><code>S (S Z)</code></td> </tr>
+              </tbody>
+            </table>
+            <p>Count the <code>S</code>.</p>
+          </section>
+          <section>
+            <h2>Natural Numbers</h2>
+<code>
+add :: N -&gt; N -&gt; N
+add Z m = m
+add (S n) m = S (add n m)
+</code>
+            <p>Addition is straightforward to define.</p>
+          </section>
+          <section>
+            <h2>Natural Numbers</h2>
+            <h3>Exercise</h3>
+            <p>Define Peano naturals using <code class="hs-ext">GADTSyntax</code>.</p>
+            <h3>Solution</h3>
+<code class="solution">
+data N where
+  Z :: N
+  S :: N -&gt; N
+</code>
+          </section>
+        </section>
+
         <section id="type-constructors">
           <section>
             <h2>Type Constructors</h2>
@@ -161,15 +246,15 @@ data Type where
               <thead>
                 <tr>
                   <th><code>Bool</code></th>
-                  <th><code>Maybe</code></th>
                   <th><code>Maybe Bool</code></th>
+                  <th><code>Maybe</code></th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td><div class="bubble"><code>False</code><code>True</code></div></td>
-                  <td>n/a</td>
                   <td><div class="bubble"><code>Nothing</code><code>Just False</code><code>Just True</code></div></td>
+                  <td>n/a</td>
                 </tr>
               </tbody>
             </table>
