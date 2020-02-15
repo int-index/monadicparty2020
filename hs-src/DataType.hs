@@ -1,0 +1,23 @@
+module DataType where
+
+data Type =
+    Int                -- data Int = ...
+  | Bool               -- data Bool = ...
+  | Char               -- data Char = ...
+  | Double             -- data Double = ...
+  | Maybe Type         -- data Maybe a = ...
+  | Either Type Type   -- data Either a b = ...
+  | IO Type            -- newtype IO a = ...
+  deriving Show
+
+-- ghci> :t Bool
+-- Bool :: Type
+
+-- ghci> :t Maybe
+-- Maybe :: Type -> Type
+
+-- ghci> :t Either
+-- Either :: Type -> Type -> Type
+
+-- ghci> :t IO
+-- IO :: Type -> Type
