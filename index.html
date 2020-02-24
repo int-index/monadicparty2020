@@ -286,6 +286,17 @@ data N where
   S :: N -&gt; N
 </code>
           </section>
+          <section>
+            <h2>Natural Numbers</h2>
+            <h3>Exercise</h3>
+            <p>Define multiplication for Peano naturals.</p>
+            <h3>Solution</h3>
+<code class="solution">
+mul :: N -&gt; N -&gt; N
+mul Z _ = Z
+mul (S n) m = add m (mul n m)
+</code>
+          </section>
         </section>
 
         <section id="type-constructors">
