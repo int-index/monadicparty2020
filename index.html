@@ -90,6 +90,7 @@ p > .highlight, p > .highlight-2 {
       <div class="slides">
 
         <section id="intro">
+<small>
 <code>
 default-extensions:
   <a href="#gadt-syntax">GADTSyntax</a> <a href="#kind-signatures">KindSignatures
@@ -100,9 +101,45 @@ default-extensions:
   <a href="#existential-quantification">ExistentialQuantification</a>
   <a href="#gadts">GADTs</a>
 </code>
+</small>
+        <p>
+          The goal of this workshop is to build intuitions for these language features.
+        </p>
         </section>
 
         <section id="gadt-syntax">
+          <section>
+          <h2>GADT Syntax</h2>
+          <p>Constructors have types.</p>
+<code>
+data Maybe a = Nothing | Just a
+</code>
+<code>
+<span class="prompt">ghci&gt;</span> :t Nothing
+Nothing :: Maybe a
+</code>
+<code>
+<span class="prompt">ghci&gt;</span> :t Just
+Just :: a -&gt; Maybe a
+</code>
+          <p>You can use them as functions.</p>
+<code>
+<span class="prompt">ghci&gt;</span> map Just [1,2,3]
+[Just 1,Just 2,Just 3]
+</code>
+          </section>
+          <section>
+          <h2>GADT Syntax</h2>
+          <p>Constructors are <em>defined</em> by their types.</p>
+<code>
+Nothing :: Maybe a
+Just :: a -&gt; Maybe a
+</code>
+          <p>
+            This is all you need to know about <code>Nothing</code> and
+            <code>Just</code> to use them.
+          </p>
+          </section>
           <section>
           <h2>GADT Syntax</h2>
           <table>
@@ -137,6 +174,18 @@ data Maybe a where
           <p>
             A data type is defined by the types of its constructors.
           </p>
+          </section>
+
+          <section>
+            <h2>GADT Syntax</h2>
+            <h3>Exercise</h3>
+            <p>Define booleans using <code class="hs-ext">GADTSyntax</code>.</p>
+            <h3>Solution</h3>
+<code class="solution">
+data Bool where
+  False :: Bool
+  True :: Bool
+</code>
           </section>
 
           <section>
