@@ -90,6 +90,11 @@ p > .highlight, p > .highlight-2 {
       <div class="slides">
 
         <section id="intro">
+          <section data-background-color="rgb(69,59,97)">
+            <h2>Basics of Type-Level Programming in Haskell</h2>
+          </section>
+
+          <section>
 <small>
 <code>
 default-extensions:
@@ -102,12 +107,17 @@ default-extensions:
   <a href="#gadts">GADTs</a>
 </code>
 </small>
-        <p>
-          The goal of this workshop is to build intuitions for these language features.
-        </p>
+          <p>
+            The goal of this workshop is to build intuitions for these language features.
+          </p>
+          </section>
         </section>
 
         <section id="gadt-syntax">
+          <section data-background-color="rgb(69,59,97)">
+            <h2>GADT Syntax</h2>
+          </section>
+
           <section>
           <h2>GADT Syntax</h2>
           <p>Constructors have types.</p>
@@ -202,6 +212,10 @@ data List a where
         </section>
 
         <section id="peano">
+          <section data-background-color="rgb(69,59,97)">
+            <h2>Natural Numbers</h2>
+          </section>
+
           <section>
             <h2>Natural Numbers</h2>
             <p> Bounded numbers are supported by hardware. </p>
@@ -275,6 +289,9 @@ data N where
         </section>
 
         <section id="type-constructors">
+          <section data-background-color="rgb(69,59,97)">
+            <h2>Type Constructors</h2>
+          </section>
           <section>
             <h2>Type Constructors</h2>
 <code>
@@ -326,6 +343,9 @@ data Type where
         </section>
 
         <section id="type-signatures">
+          <section data-background-color="rgb(69,59,97)">
+            <h2>Type Signatures</h2>
+          </section>
           <section>
             <h2>Type Signatures</h2>
             <table>
@@ -381,6 +401,10 @@ b = (even :: Int -&gt; Bool)
         </section>
 
         <section id="kind-signatures">
+          <section data-background-color="rgb(69,59,97)">
+            <h2>Kind Signatures</h2>
+          </section>
+
           <section>
             <h2>Kind Signatures</h2>
             <table>
@@ -436,6 +460,10 @@ data Maybe a = Nothing | Just a
         </section>
 
         <section id="type-variables">
+          <section data-background-color="rgb(69,59,97)">
+            <h2>Type Variables</h2>
+          </section>
+
           <section>
             <h2>Type Variables</h2>
             <table>
@@ -505,6 +533,10 @@ id @(Bool :: Type)
         </section>
 
         <section id="scoped-type-variables">
+          <section data-background-color="rgb(69,59,97)">
+            <h2>Scoped Type Variables</h2>
+          </section>
+
           <section>
             <h2>Scoped Type Variables</h2>
             <p>Without <code class="hs-ext">ScopedTypeVariables</code>:</p>
@@ -533,6 +565,10 @@ id = \ <span class="highlight">@a</span> x -&gt; (x :: a)
         </section>
 
         <section id="rank-n-types">
+          <section data-background-color="rgb(69,59,97)">
+            <h2>Higher-Rank Polymorphism</h2>
+          </section>
+
           <section>
             <h2>Higher-Rank Polymorphism</h2>
             <table>
@@ -670,6 +706,10 @@ rep0, rep3 :: <span class="highlight">forall (a :: Type).</span> <span class="hi
           </section>
         </section>
         <section id="constraints">
+          <section data-background-color="rgb(69,59,97)">
+            <h2>Constraints</h2>
+          </section>
+
           <section>
             <h2>Constraints</h2>
             <p>
@@ -772,6 +812,10 @@ k <span class="highlight">d</span> x = fmap' <span class="highlight">d</span> ev
           </section>
         </section>
         <section id="existential-quantification">
+          <section data-background-color="rgb(69,59,97)">
+            <h2>Existential Quantification</h2>
+          </section>
+
           <section>
             <h2>Existential Quantification</h2>
             <p><code>MkShowable</code> has three fields:</p>
@@ -831,6 +875,9 @@ items =
         </section>
 
         <section id="gadts">
+          <section data-background-color="rgb(69,59,97)">
+            <h2>Equality Constraints</h2>
+          </section>
           <section>
             <h2>Equality Constraints</h2>
 <code>
